@@ -11,6 +11,7 @@ $(function() {
         location.reload();
       });
   });
+  
   $(".devour-cookie").on("click", function(event) {
     var id = $(this).data("id");
 
@@ -52,4 +53,15 @@ $(function() {
       }
     );
   });
+
+  $(".add-cookie").on("click", function(e) {
+    $(".create-form").submit();
+  });
+
+  $('[data-toggle="tooltip"]').tooltip()
+
+  // Focus on input when modal is opened
+  $('#cookieModal').on('shown.bs.modal', function (e) {
+    $("#cookieModal input").focus();
+  })
 });

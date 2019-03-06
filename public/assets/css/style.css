@@ -2,6 +2,26 @@ body {
   background-color: burlywood;
 }
 
+.row {
+  margin-bottom: 10px;
+}
+
+.billboard {
+  max-width: 49%;
+  border: 5px solid brown;
+  background-color: antiquewhite;
+  padding-bottom: 43px;
+  padding-top: 5px;
+}
+
+.billboard:first-child {
+  margin-right: 2%;
+}
+
+.list-group {
+  position: relative;
+}
+
 .list-group-item {
   background-color: #e8d089;
 }
@@ -23,6 +43,71 @@ body {
   color: purple;
 }
 
+#modal-opener {
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  color: brown;
+  font-size: 32px;
+}
+
+#plus {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #16da16;
+  vertical-align: top;
+  font-size: 16px;
+}
+
 #cookie-adder {
   display: inline;
+}
+
+.modal-title {
+  font-size: 1.25em;
+}
+
+#cookieModal .modal-content {
+  color: white;
+  background-color: black;
+  border: 5px solid sandybrown;
+  font-family: 'Finger Paint', cursive;
+  caret-color: white;
+  font-size: 24px;
+}
+
+#cookieModal .modal-content div {
+  border: 0;
+}
+
+#cookieModal hr {
+  width: 90%;
+  border-radius: 50%;
+  border-top: 2px solid rgba(255, 255, 255, 0.35);
+}
+
+#cookieModal .modal-body * {
+  margin: 0;
+  height: 100%;
+}
+
+#cookieModal input {
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+#cookieModal input:focus {
+  border: none;
+  text-decoration: underline;
+  text-decoration-skip: whitespace;
+  outline: none;
+}
+
+#exit {
+  color: white;
+  opacity: 1;
 }

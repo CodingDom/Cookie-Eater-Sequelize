@@ -2,49 +2,63 @@
   <div class="row">
     <div class="col-sm-12 text-center">
       <h1>Cookie Eater</h1>
-      <img src="http://www.thelockinmovie.com/wp-content/uploads/ktz/cookie-jar-clipart-cookies-clip-art-cookie-jar-st-columba-presterian-church-music-clipart-36xy9dsye35anu4pd8f18q.png" width="25%">
+      <img src="https://image.flaticon.com/icons/png/128/164/164659.png" width="10%">
     </div>
   </div>
 
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6 billboard">
       <h2 class="text-center">Baked Cookies</h2>
       <ul class="list-group">
         {{#each cookies}}
           {{#unless this.devoured}}
             <li class="list-group-item">
-              {{this.id}}. {{this.name}} <button class="devour-cookie btn cookie-mod" data-id="{{this.id}}" data-devoured="{{this.devoured}}"><i class="fas fa-cookie-bite devour"></i></button>
+              {{this.id}}. {{this.name}} <button class="devour-cookie btn cookie-mod" data-id="{{this.id}}" data-devoured="{{this.devoured}}" data-toggle="tooltip" data-placement="right" title="Eat Cookie"><i class="fas fa-cookie-bite devour"></i></button>
             </li>
           {{/unless}}
         {{/each}}
+        <button id="modal-opener" type="button" class="btn" data-toggle="modal" data-target="#cookieModal"><span data-toggle="tooltip" data-placement="bottom" title="Add Cookies"><i class="fas fa-cookie"></i><i id="plus" class="fas fa-plus"></i></span></button>
       </ul>
     </div>  
 
-    <div class="col-sm-6">
+    <div class="col-sm-6 billboard">
       <h2 class="text-center">Devoured Cookies</h2>
       <ul class="list-group">
         {{#each cookies}}
           {{#if this.devoured}}
             <li class="list-group-item">
-              {{this.id}}. {{this.name}} <button class="delete-cookie btn cookie-mod" data-id="{{this.id}}" data-devoured="{{this.devoured}}"><i class="fas fa-trash-alt"></i></button>
+              {{this.id}}. {{this.name}} <button class="delete-cookie btn cookie-mod" data-id="{{this.id}}" data-devoured="{{this.devoured}}" data-toggle="tooltip" data-placement="right" title="Delete Cookie"><i class="fas fa-trash-alt"></i></button>
             </li>
           {{/if}}
         {{/each}}
       </ul>
     </div>
   </div>    
+</div>  
 
-  <div class="row">
-    <div class="col-sm-12 text-center">
-      <h2>Add a Cookie</h2>
-      <form class="create-form list-group-item">
-
+<!-- Modal -->
+<div class="modal fade" id="cookieModal" tabindex="-1" role="dialog" aria-labelledby="cookieModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cookieModalTitle">Create New Batch</h5>
+        <button id="exit" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <hr>
+      <div class="modal-body">
+        <form class="create-form" autocomplete="off">
         <div class="form-group">
-          <label for="ba">Cookie Flavor:</label>
+          <label for="ba">Flavor:</label>
           <input type="text" id="ba" name="name">
-          <button id="cookie-adder" type="submit" class="btn btn-primary btn-sm">Add Cookie</button>
         </div>
       </form>
+      </div>
+      <hr>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success add-cookie">Create</button>
+      </div>
     </div>
   </div>
-</div>  
+</div>
