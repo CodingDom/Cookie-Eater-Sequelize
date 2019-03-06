@@ -1,6 +1,6 @@
-INSERT INTO burgers (name, devoured) VALUES ('Cheeseburger', true);
-INSERT INTO burgers (name, devoured) VALUES ('Hamburger',false);
-INSERT INTO burgers (name, devoured) VALUES ('Bacon Burger', false);
-INSERT INTO burgers (name, devoured) VALUES ('Big Mac', true);
-INSERT INTO burgers (name, devoured) VALUES ('Double Cheeseburger', false);
-INSERT INTO burgers (name, devoured) VALUES ('Double Quarter Pounder', false);
+INSERT INTO cookies (name, devoured) VALUES ('Chocolate Chip Cookies', true);
+INSERT INTO cookies (name, devoured) VALUES ('Sugar Cookies',false);
+INSERT INTO cookies (name, devoured) VALUES ('Thin Mints', false);
+INSERT INTO cookies (name, devoured) VALUES ('Lemon Drop Cookies', true);
+INSERT INTO cookies (name, devoured) VALUES ('Double Chocolate Chip Cookies', false);
+INSERT INTO cookies (name, devoured) VALUES ('Oreos', false);

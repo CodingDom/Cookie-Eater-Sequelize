@@ -1,43 +1,49 @@
-<h1 class="text-center">Eat-Da-Burger</h1>
-
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 text-center">
-      <h2>Cooked Burgers</h2>
+    <div class="col-sm-12 text-center">
+      <h1>Cookie Eater</h1>
+      <img src="http://www.thelockinmovie.com/wp-content/uploads/ktz/cookie-jar-clipart-cookies-clip-art-cookie-jar-st-columba-presterian-church-music-clipart-36xy9dsye35anu4pd8f18q.png" width="25%">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <h2 class="text-center">Baked Cookies</h2>
       <ul class="list-group">
-        {{#each burgers}}
+        {{#each cookies}}
           {{#unless this.devoured}}
             <li class="list-group-item">
-              {{this.id}} {{this.name}}
+              {{this.id}}. {{this.name}} <button class="devour-cookie btn cookie-mod" data-id="{{this.id}}" data-devoured="{{this.devoured}}"><i class="fas fa-cookie-bite devour"></i></button>
             </li>
           {{/unless}}
         {{/each}}
       </ul>
     </div>  
-    <div class="col-sm-6 text-center">
-      <h2>Devoured Burgers</h2>
 
+    <div class="col-sm-6">
+      <h2 class="text-center">Devoured Cookies</h2>
       <ul class="list-group">
-        {{#each burgers}}
+        {{#each cookies}}
           {{#if this.devoured}}
             <li class="list-group-item">
-              {{this.id}}. {{this.name}}
+              {{this.id}}. {{this.name}} <button class="delete-cookie btn cookie-mod" data-id="{{this.id}}" data-devoured="{{this.devoured}}"><i class="fas fa-trash-alt"></i></button>
             </li>
           {{/if}}
         {{/each}}
       </ul>
     </div>
   </div>    
+
   <div class="row">
     <div class="col-sm-12 text-center">
-      <h2>Add a Burger</h2>
-      <form class="create-form">
+      <h2>Add a Cookie</h2>
+      <form class="create-form list-group-item">
 
         <div class="form-group">
-          <label for="ba">Type of Burger:</label>
+          <label for="ba">Cookie Flavor:</label>
           <input type="text" id="ba" name="name">
+          <button id="cookie-adder" type="submit" class="btn btn-primary btn-sm">Add Cookie</button>
         </div>
-        <button type="submit">Add Burger</button>
       </form>
     </div>
   </div>

@@ -1,9 +1,9 @@
 ### Schema
 
-CREATE DATABASE burger_db;
-USE burger_db;
+CREATE DATABASE cookie_db;
+USE cookie_db;
 
-CREATE TABLE burgers
+CREATE TABLE cookies
 (
 	id int NOT NULL AUTO_INCREMENT,
 	name varchar(255) NOT NULL,

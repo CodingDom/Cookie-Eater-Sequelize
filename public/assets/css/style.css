@@ -1,0 +1,28 @@
+body {
+  background-color: burlywood;
+}
+
+.list-group-item {
+  background-color: #e8d089;
+}
+
+.cookie-mod {
+  position: absolute;
+  margin-right: 10px;
+  top: 50%;
+  right: 0;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.cookie-mod:hover .fa-trash-alt {
+  color: red;
+}
+
+.cookie-mod:hover .fa-cookie-bite {
+  color: purple;
+}
+
+#cookie-adder {
+  display: inline;
+}
