@@ -2,7 +2,7 @@ body {
   background-color: burlywood;
 }
 
-.row {
+.row:first-child {
   margin-bottom: 10px;
 }
 
