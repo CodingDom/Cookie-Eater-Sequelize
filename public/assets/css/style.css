@@ -67,7 +67,7 @@ body {
 
 #modal-opener {
   position: absolute;
-  bottom: -32px;
+  bottom: -36px;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
