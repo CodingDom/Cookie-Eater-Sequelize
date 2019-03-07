@@ -1,8 +1,8 @@
-// Make sure we wait to attach our handlers until the DOM is fully loaded.
+// Wait for document to load
 $(function() {
-  $(".delete-cookie").on("click", function(event) {
-    var id = $(this).data("id");
-
+  $(".delete-cookie").on("click", function(e) {
+    const id = $(this).data("id");
+    // Send the delete request
     $.ajax("/api/cookies/" + id, {
       type: "DELETE"
     }).then(
@@ -12,10 +12,12 @@ $(function() {
       });
   });
   
-  $(".devour-cookie").on("click", function(event) {
-    var id = $(this).data("id");
+  $(".devour-cookie").on("click", function(e) {
+    // Storing the cookie's id
+    const id = $(this).data("id");
 
-    var devouredState = {
+    // The data that is being updated
+    const devouredState = {
       devoured: true
     };
 
@@ -31,14 +33,18 @@ $(function() {
     );
   });
 
-  $(".cookie-form").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
+  $("#cookie-form").on("submit", function(e) {
+    e.preventDefault();
+    // Grabbing submission type
     const mode = $(this).data("mode");
-    var newcookie = {
+
+    // Creating object to send to database
+    const newcookie = {
       name: $("#flavor").val().trim(),
       devoured : false
     };
+
+    // Running code depending on submission type
     switch (mode) {
       case "add":
       // Send the POST request.
@@ -53,6 +59,7 @@ $(function() {
       );
       break;
       case "modify":
+        // Grab the cookie's id
         const id = $(this).data("cookieId");
         // Send the PUT request.
         $.ajax("/api/cookies/" + id, {
@@ -68,38 +75,40 @@ $(function() {
     }
   });
 
-  $(".cookie-submission").on("click", function(e) {
-    $(".cookie-form").submit();
-  });
-
-  $('[data-toggle="tooltip"]').tooltip()
-
+  // Adjusting form for modifying the cookies
   $(".modify-cookie").on("click", function(e) {
-    $("#cookieModal .cookie-form").data("mode","modify");
+    $("#cookie-form").data("mode","modify");
     $("#cookieModal .modal-title").text("Modify Batch");
     $("#cookieModal .cookie-submission").text("Modify");
-
-    let currentFlavor = $(this).parent().text().trim();
-    currentFlavor = currentFlavor.slice(currentFlavor.indexOf(". ")+2);
-    $("#cookieModal input").val(currentFlavor);
-
+    // Placing current flavor within input
     const id = $(this).data("id");
-    console.log(id);
-    $("#cookieModal .cookie-form").data("cookieId",id);
+    let currentFlavor = $(this).parent().text().replace(id+".","").trim();
+    $("#cookieModal input").val(currentFlavor);
+    $("#cookie-form").data("cookieId",id);
   });
 
+  // Adjusting form for creating new cookies
   $("#modal-opener").on("click", function(e) {
-    $("#cookieModal .cookie-form").data("mode","add");
+    $("#cookie-form").data("mode","add");
     $("#cookieModal .modal-title").text("Create New Batch");
     $("#cookieModal .cookie-submission").text("Create");
   });
+
+  // Initializing tooltips
+  $('[data-toggle="tooltip"]').tooltip()
 
   // Makes sure tooltip disappears once modal begins opening
   $("#cookieModal").on("show.bs.modal", function(e) {
     $('[data-toggle="tooltip"]').tooltip("hide");
   });
+
   // Focus on input when modal is opened
   $('#cookieModal').on('shown.bs.modal', function (e) {
     $("#cookieModal input").click().focus();
+  });
+
+  // Clear input upon closing modal
+  $('#cookieModal').on('hidden.bs.modal', function (e) {
+    $("#cookieModal input").val("");
   });
 });

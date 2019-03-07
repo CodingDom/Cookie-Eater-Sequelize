@@ -2,6 +2,12 @@ body {
   background-color: burlywood;
 }
 
+/* Getting rid of default bootstrap button focus styling */
+.btn.focus, .btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
 .row:first-child {
   margin-bottom: 10px;
 }
