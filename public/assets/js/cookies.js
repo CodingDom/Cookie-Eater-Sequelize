@@ -25,43 +25,60 @@ $(function() {
       data: devouredState
     }).then(
       function() {
-        console.log("changed devoured to true");
         // Reload the page to get the updated list
         location.reload();
       }
     );
   });
 
-  $(".create-form").on("submit", function(event) {
+  $(".cookie-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-
+    const mode = $(this).data("mode");
     var newcookie = {
-      name: $("#ba").val().trim(),
+      name: $("#flavor").val().trim(),
       devoured : false
     };
-
-    // Send the POST request.
-    $.ajax("/api/cookies", {
-      type: "POST",
-      data: newcookie
-    }).then(
-      function() {
-        console.log("created new cookie");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
+    switch (mode) {
+      case "add":
+      // Send the POST request.
+      $.ajax("/api/cookies", {
+        type: "POST",
+        data: newcookie
+      }).then(
+        function() {
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+      break;
+      case "modify":
+        // Send the POST request.
+      $.ajax("/api/cookies/" + id, {
+        type: "PUT",
+        data: newcookie
+      }).then(
+        function() {
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+      break;
+    }
   });
 
-  $(".add-cookie").on("click", function(e) {
+  $(".cookie-submission").on("click", function(e) {
     $(".create-form").submit();
   });
 
   $('[data-toggle="tooltip"]').tooltip()
 
+  // Makes sure tooltip disappears once modal begins opening
+  $("#cookieModal").on("show.bs.modal", function(e) {
+    $('[data-toggle="tooltip"]').tooltip("hide");
+  });
   // Focus on input when modal is opened
   $('#cookieModal').on('shown.bs.modal', function (e) {
-    $("#cookieModal input").focus();
-  })
+    $("#cookieModal input").click().focus();
+  });
 });

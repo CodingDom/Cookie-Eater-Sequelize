@@ -7,13 +7,15 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-6 billboard">
+    <div class="col-sm-12 col-m-6 billboard">
       <h2 class="text-center">Baked Cookies</h2>
       <ul class="list-group">
         {{#each cookies}}
           {{#unless this.devoured}}
             <li class="list-group-item">
-              {{this.id}}. {{this.name}} <button class="devour-cookie btn cookie-mod" data-id="{{this.id}}" data-devoured="{{this.devoured}}" data-toggle="tooltip" data-placement="right" title="Eat Cookie"><i class="fas fa-cookie-bite devour"></i></button>
+              {{this.id}}. {{this.name}}
+              <button class="modify-cookie btn cookie-mod" data-id="{{this.id}}" data-devoured="{{this.devoured}}" data-toggle="tooltip" data-placement="top" title="Modify Flavor"><i class="fas fa-pencil-alt modify"></i></button>
+              <button class="devour-cookie btn cookie-mod" data-id="{{this.id}}" data-devoured="{{this.devoured}}" data-toggle="tooltip" data-placement="right" title="Eat Cookie"><i class="fas fa-cookie-bite devour"></i></button>
             </li>
           {{/unless}}
         {{/each}}
@@ -21,7 +23,7 @@
       </ul>
     </div>  
 
-    <div class="col-sm-6 billboard">
+    <div class="col-sm-12 col-m-6 billboard">
       <h2 class="text-center">Devoured Cookies</h2>
       <ul class="list-group">
         {{#each cookies}}
@@ -48,16 +50,16 @@
       </div>
       <hr>
       <div class="modal-body">
-        <form class="create-form" autocomplete="off">
-        <div class="form-group">
-          <label for="ba">Flavor:</label>
-          <input type="text" id="ba" name="name">
-        </div>
-      </form>
+        <form class="cookie-form" autocomplete="off">
+          <div class="form-group">
+            <label for="flavor">Flavor:</label>
+            <input type="text" id="flavor" name="flavor">
+          </div>
+        </form>
       </div>
       <hr>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success add-cookie">Create</button>
+        <button type="button" class="btn btn-success cookie-submission">Create</button>
       </div>
     </div>
   </div>

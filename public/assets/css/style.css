@@ -7,16 +7,12 @@ body {
 }
 
 .billboard {
-  max-width: 49%;
+  margin-bottom: 10px;
   border: 5px solid brown;
   background-color: antiquewhite;
   padding-bottom: 43px;
   padding-top: 5px;
   box-shadow: 0px 0 1.3vw 1px #4f4f4f;
-}
-
-.billboard:first-child {
-  margin-right: 2%;
 }
 
 .list-group {
@@ -36,12 +32,20 @@ body {
   transform: translateY(-50%);
 }
 
-.cookie-mod:hover .fa-trash-alt {
+.delete-cookie:hover .fa-trash-alt {
   color: red;
 }
 
-.cookie-mod:hover .fa-cookie-bite {
+.devour-cookie:hover .fa-cookie-bite {
   color: purple;
+}
+
+.modify-cookie:hover .fa-pencil-alt {
+  color: orange;
+}
+
+.modify-cookie {
+  margin-right: 48px;
 }
 
 #modal-opener {
@@ -111,4 +115,14 @@ body {
 #exit {
   color: white;
   opacity: 1;
+}
+
+@media screen and (min-width: 767.98px) {
+  .billboard {
+    max-width: 49%;
+    margin-bottom: 0;
+  }
+  .billboard:first-child {
+    margin-right: 2%;
+  }
 }
