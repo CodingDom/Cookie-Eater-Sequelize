@@ -9,12 +9,12 @@
   <div class="row">
     <div class="col-sm-12 col-m-6 billboard">
       <h2 class="text-center">Baked Cookies</h2>
-      <ul class="list-group">
+      <ul id="baked" class="list-group">
         {{#each cookies}}
           {{#unless this.devoured}}
             <li class="list-group-item">
               {{this.id}}. {{this.name}}
-              <button class="modify-cookie btn cookie-mod" data-id="{{this.id}}" data-devoured="{{this.devoured}}" data-toggle="tooltip" data-placement="top" title="Modify Flavor"><i class="fas fa-pencil-alt modify"></i></button>
+              <button type="button" class="modify-cookie btn cookie-mod" data-id="{{this.id}}" data-toggle="modal" data-target="#cookieModal"><span data-toggle="tooltip" data-placement="top" title="Modify Flavor"><i class="fas fa-pencil-alt"></i></span></button>
               <button class="devour-cookie btn cookie-mod" data-id="{{this.id}}" data-devoured="{{this.devoured}}" data-toggle="tooltip" data-placement="right" title="Eat Cookie"><i class="fas fa-cookie-bite devour"></i></button>
             </li>
           {{/unless}}
@@ -25,7 +25,7 @@
 
     <div class="col-sm-12 col-m-6 billboard">
       <h2 class="text-center">Devoured Cookies</h2>
-      <ul class="list-group">
+      <ul id="devoured" class="list-group">
         {{#each cookies}}
           {{#if this.devoured}}
             <li class="list-group-item">
@@ -53,7 +53,7 @@
         <form class="cookie-form" autocomplete="off">
           <div class="form-group">
             <label for="flavor">Flavor:</label>
-            <input type="text" id="flavor" name="flavor">
+            <input type="text" id="flavor" name="flavor" placeholder="Type here..">
           </div>
         </form>
       </div>

@@ -53,25 +53,46 @@ $(function() {
       );
       break;
       case "modify":
-        // Send the POST request.
-      $.ajax("/api/cookies/" + id, {
-        type: "PUT",
-        data: newcookie
-      }).then(
-        function() {
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
+        const id = $(this).data("cookieId");
+        // Send the PUT request.
+        $.ajax("/api/cookies/" + id, {
+          type: "PUT",
+          data: newcookie
+        }).then(
+          function() {
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
       break;
     }
   });
 
   $(".cookie-submission").on("click", function(e) {
-    $(".create-form").submit();
+    $(".cookie-form").submit();
   });
 
   $('[data-toggle="tooltip"]').tooltip()
+
+  $(".modify-cookie").on("click", function(e) {
+    $("#cookieModal .cookie-form").data("mode","modify");
+    $("#cookieModal .modal-title").text("Modify Batch");
+    $("#cookieModal .cookie-submission").text("Modify");
+
+    let currentFlavor = $(this).parent().text().trim();
+    currentFlavor = currentFlavor.slice(currentFlavor.indexOf(". ")+2);
+    $("#cookieModal input").val(currentFlavor);
+
+    const id = $(this).data("id");
+    console.log(id);
+    $("#cookieModal .cookie-form").data("cookieId",id);
+  });
+
+  $("#modal-opener").on("click", function(e) {
+    $("#cookieModal .cookie-form").data("mode","add");
+    $("#cookieModal .modal-title").text("Create New Batch");
+    $("#cookieModal .cookie-submission").text("Create");
+  });
 
   // Makes sure tooltip disappears once modal begins opening
   $("#cookieModal").on("show.bs.modal", function(e) {

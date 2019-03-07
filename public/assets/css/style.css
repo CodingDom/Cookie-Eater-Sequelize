@@ -21,6 +21,17 @@ body {
 
 .list-group-item {
   background-color: #e8d089;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#baked .list-group-item {
+  padding-right: 84px;
+}
+
+#devoured .list-group-item {
+  padding-right: 48px;
 }
 
 .cookie-mod {
