@@ -14,7 +14,7 @@ body {
 
 .billboard {
   margin-bottom: 10px;
-  border: 5px solid brown;
+  border: 5px solid saddlebrown;
   background-color: #ffd9a7;
   padding-bottom: 43px;
   padding-top: 5px;
@@ -71,7 +71,7 @@ body {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  color: brown;
+  color: saddlebrown;
   font-size: 32px;
 }
 
