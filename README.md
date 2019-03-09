@@ -1,6 +1,6 @@
 # Cookie Eater
 
-<i><b>Cookie Eater</b></i> is a DataBase Interface/CRUD application made for storing information about cookie intake eaten.
+<i><b>Cookie Eater</b></i> is a DataBase Interface/CRUD application made for storing information on cookie consumption.
 <br>
 <i><b>Link:</b></i> <a>https://cookie-eater.herokuapp.com</a>
 
