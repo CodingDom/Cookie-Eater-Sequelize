@@ -1,6 +1,6 @@
 {
-  "name": "burger",
-  "version": "1.0.0",
+  "name": "cooke-eater-sequelize",
+  "version": "1.1.0",
   "description": "",
   "main": "server.js",
   "dependencies": {
@@ -16,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodingDom/Burger.git"
+    "url": "git+https://github.com/CodingDom/Cookie-Eater-Sequelize.git"
   },
   "author": "Dominic Smith",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CodingDom/Burger/issues"
+    "url": "https://github.com/CodingDom/Cookie-Eater-Sequelize/issues"
   },
-  "homepage": "https://github.com/CodingDom/Burger#readme"
+  "homepage": "https://github.com/CodingDom/Cookie-Eater-Sequelize#readme"
 }
