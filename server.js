@@ -1,7 +1,4 @@
 var express = require("express");
-var fs = require('fs');
-var fileName = './config/config.json';
-var file = require(fileName);
 
 var PORT = process.env.PORT || 7000;
 
@@ -31,21 +28,11 @@ var routes = require("./controllers/cookies_controller.js");
 
 app.use(routes);
 
-// // Updating config to match Jaws DataBase
-// file.production = process.env.JAWSDB_URL && {"use_env_variable": "JAWSDB_URL",
-//   "dialect": "mysql"} || file.production;
-
-// fs.writeFile(fileName, JSON.stringify(file,null,2), function (err) {
-//   if (err) return console.log(err);
-//   console.log(JSON.stringify(file));
-//   console.log('Updating ' + fileName);
-
-  db.sequelize.sync({ force: true }).then(function() {
-    // Populating database with seeds
-    seeds(db.Cookie);
-    // Running application
-    app.listen(PORT, function() {
-      console.log("App listening on PORT " + PORT);
-    });
+db.sequelize.sync({ force: true }).then(function() {
+  // Populating database with seeds
+  seeds(db.Cookie);
+  // Running application
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
   });
-// });
+});
