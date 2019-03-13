@@ -4,6 +4,12 @@ var PORT = process.env.PORT || 7000;
 
 var app = express();
 
+// Requiring the models for syncing
+var db = require("./models");
+
+// Requiring the default cookie data
+var seeds = require("./seeds/cookie-seeder.js");
+
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
@@ -22,8 +28,11 @@ var routes = require("./controllers/cookies_controller.js");
 
 app.use(routes);
 
-// Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
-  // Log (server-side) when our server has started
-  console.log("Server listening on: " + PORT);
+db.sequelize.sync({ force: true }).then(function() {
+  // Populating database with seeds
+  seeds(db.Cookie);
+  // Running application
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
