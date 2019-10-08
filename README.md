@@ -18,4 +18,4 @@
 
 ### Back End
 
-<img align="middle" src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="15%"><img align="middle" src="http://www.michaelwooton.com/assets/img/express.png" width="25%"><img align="middle" src="https://pngimg.com/uploads/mysql/mysql_PNG1.png" width="20%"><img align="middle" src="https://cdn.iconscout.com/icon/free/png-256/sequelize-1-1175002.png" width="20%">
+<img align="middle" src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="15%"><img align="middle" src="http://www.michaelwooton.com/assets/img/express.png" width="25%"><img align="middle" src="https://cdn.iconscout.com/icon/free/png-256/sequelize-1-1175002.png" width="20%"><img align="top" src="https://www.sqlclusters.com/img/index/mysql-logo.png" width="13%">
